@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fenny Store - Pesan Mudah & Cepat</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Fenny Store - Pesan Mudah & Terpercaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #7B1D3A; /* Maroon Elegan */
-            --primary-light: #A63252;
-            --bg-color: #FFF9FA; /* Putih dengan sentuhan pink sangat lembut */
-            --text-main: #2D2D2D;
-            --text-muted: #717171;
+            --primary: #6B1D2F; /* Maroon Premium */
+            --primary-dark: #4A1320;
+            --accent: #D4A373; /* Gold/Cream */
+            --bg-cream: #FDFBF7;
+            --text-dark: #2D2D2D;
+            --text-light: #666666;
             --white: #FFFFFF;
             --wa-green: #25D366;
         }
@@ -20,59 +23,54 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* NAVBAR / HEADER */
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+        /* ============ BACKGROUND UTAMA (TEKSTUR & OVERLAY) ============ */
+        .hero-section {
+            position: relative;
+            /* Menggunakan gambar tekstur kain/linen dari Unsplash */
+            background-image: url('https://images.unsplash.com/photo-1604147706283-d7119b5b822c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 120px 24px;
+            text-align: center;
+            /* Overlay gradient maroon transparan agar teks terbaca */
+            box-shadow: inset 0 0 0 2000px rgba(107, 29, 47, 0.85); 
         }
-        header h1 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.3;
             letter-spacing: 0.5px;
         }
 
-        /* HERO SECTION (Bagian Utama) */
-        .hero {
-            padding: 80px 24px;
-            text-align: center;
-            background: linear-gradient(180deg, #FFF0F3 0%, var(--bg-color) 100%);
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-        }
-        .hero h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-        .hero p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            max-width: 500px;
-            margin: 0 auto 32px auto;
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #f0e6e8;
+            margin-bottom: 40px;
+            font-weight: 400;
         }
 
-        /* TOMBOL WHATSAPP */
+        /* ============ TOMBOL WHATSAPP ============ */
         .btn-wa {
             display: inline-flex;
             align-items: center;
@@ -80,199 +78,224 @@
             background-color: var(--wa-green);
             color: var(--white);
             text-decoration: none;
-            padding: 16px 32px;
+            padding: 18px 40px;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
             transition: all 0.3s ease;
             border: none;
         }
+
         .btn-wa:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
             background-color: #20b858;
         }
+
         .btn-wa svg {
-            width: 22px;
-            height: 22px;
-            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
         }
 
-        /* CONTAINER UTAMA */
+        /* ============ SECTION FITUR (KARTU PREMIUM) ============ */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 60px 24px;
+            padding: 80px 24px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 1.6rem;
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
             color: var(--primary);
-            margin-bottom: 40px;
-        }
-
-        /* FITUR */
-        .fitur-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-        }
-
-        .fitur-item {
-            background: var(--white);
-            padding: 32px 24px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(123, 29, 58, 0.05);
-        }
-        .fitur-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(123, 29, 58, 0.08);
-        }
-        .fitur-item .icon {
-            font-size: 2.2rem;
-            margin-bottom: 16px;
-            display: inline-block;
-            padding: 12px;
-            background: #FFF0F3;
-            border-radius: 50%;
-        }
-        .fitur-item h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-        .fitur-item p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* SECTION QRIS */
-        .qris-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 48px 24px;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
-            margin-top: 60px;
+            margin-bottom: 50px;
             position: relative;
-            overflow: hidden;
-        }
-        .qris-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, var(--primary-light), var(--primary));
         }
 
-        .qris-card h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-fitur {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .kartu-fitur {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(212, 163, 115, 0.2); /* Border tipis warna Gold */
+        }
+
+        .kartu-fitur:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(107, 29, 47, 0.08);
+        }
+
+        .kartu-fitur .icon-box {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background-color: #FFF0F3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .kartu-fitur h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
             color: var(--primary);
             margin-bottom: 12px;
         }
-        .qris-card p {
+
+        .kartu-fitur p {
             font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 32px;
+            color: var(--text-light);
         }
-        
-        .qris-image-wrapper {
+
+        /* ============ SECTION QRIS (CLEAN & ELEGANT) ============ */
+        .qris-section {
+            background-color: var(--white);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            margin-top: 40px;
+            border-top: 5px solid var(--primary);
+        }
+
+        .qris-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .qris-section p.desc {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .qris-box {
             display: inline-block;
-            padding: 16px;
+            padding: 20px;
             background: #FAFAFA;
             border: 1px solid #EAEAEA;
             border-radius: 16px;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
         }
-        .qris-image-wrapper img {
+
+        .qris-box img {
             width: 260px;
+            height: auto;
             border-radius: 8px;
             display: block;
         }
 
         .qris-note {
-            margin-top: 24px;
-            font-size: 0.85rem;
+            margin-top: 25px;
+            font-size: 0.9rem;
             color: var(--primary);
-            background: #FFF0F3;
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 30px;
             font-weight: 500;
         }
 
-        /* FOOTER */
+        /* ============ FOOTER ============ */
         footer {
             text-align: center;
             padding: 40px 20px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            margin-top: 80px;
+            background-color: var(--primary-dark);
+            color: #e0e0e0;
+            font-size: 0.9rem;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            .hero h2 { font-size: 1.8rem; }
-            .hero { padding: 60px 20px; }
-            .qris-image-wrapper img { width: 100%; max-width: 220px; }
-            .qris-card { padding: 32px 20px; }
+        /* ============ RESPONSIVE (MOBILE) ============ */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 20px;
+                background-attachment: scroll; /* Biar gak berat di HP */
+            }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .qris-section {
+                padding: 40px 20px;
+            }
+            .qris-box img {
+                width: 100%;
+                max-width: 220px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Fenny Store</h1>
-    </header>
-
-    <section class="hero">
-        <h2>Pesan Mudah, Langsung ke Kami.</h2>
-        <p>Temukan produk favorit Anda tanpa perlu ribet daftar akun. Pesan langsung melalui WhatsApp dengan pelayanan yang ramah dan cepat.</p>
-        
-        <a href="https://wa.me/6282268946552?text=Halo%20Admin%20Fenny%20Store,%20saya%20tertarik%20dengan%20produknya." target="_blank" class="btn-wa">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.126-.074-.271-.083-.621-.194-1.063-.396-1.868-.814-3.083-2.732-3.177-2.859-.092-.128-.762-1.017-.762-1.942 0-.924.485-1.379.656-1.568.172-.188.375-.235.5-.235.125 0 .25.001.36.006.115.006.269-.043.421.321.156.375.534 1.311.581 1.406.046.094.077.204.013.33-.064.125-.097.204-.194.317-.097.111-.203.249-.29.335-.096.094-.198.196-.083.392.115.196.509.844 1.092 1.365.749.669 1.381.875 1.576.976.196.098.311.083.425-.049.115-.131.493-.574.624-.769.131-.196.263-.164.443-.098.179.066 1.131.533 1.325.631.196.098.326.147.374.229.047.081.047.473-.096.878z"/></svg>
-            Chat & Pesan Sekarang
-        </a>
+    <!-- HERO SECTION DENGAN BACKGROUND TEKSTUR & OVERLAY -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Pesan Mudah, Langsung ke Kami.</h1>
+            <p>Temukan produk favorit Anda tanpa perlu ribet daftar akun. Pesan langsung melalui WhatsApp dengan pelayanan yang ramah dan cepat.</p>
+            <a href="https://wa.me/6282268946552?text=Halo%20Admin%20Fenny%20Store,%20saya%20tertarik%20dengan%20produknya." target="_blank" class="btn-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.126-.074-.271-.083-.621-.194-1.063-.396-1.868-.814-3.083-2.732-3.177-2.859-.092-.128-.762-1.017-.762-1.942 0-.924.485-1.379.656-1.568.172-.188.375-.235.5-.235.125 0 .25.001.36.006.115.006.269-.043.421.321.156.375.534 1.311.581 1.406.046.094.077.204.013.33-.064.125-.097.204-.194.317-.097.111-.203.249-.29.335-.096.094-.198.196-.083.392.115.196.509.844 1.092 1.365.749.669 1.381.875 1.576.976.196.098.311.083.425-.049.115-.131.493-.574.624-.769.131-.196.263-.164.443-.098.179.066 1.131.533 1.325.631.196.098.326.147.374.229.047.081.047.473-.096.878z"/></svg>
+                Chat & Pesan Sekarang
+            </a>
+        </div>
     </section>
 
+    <!-- KONTEN UTAMA -->
     <main class="container">
         
         <h2 class="section-title">Kenapa Memilih Kami?</h2>
         
-        <div class="fitur-grid">
-            <div class="fitur-item">
-                <div class="icon">✨</div>
+        <div class="grid-fitur">
+            <div class="kartu-fitur">
+                <div class="icon-box">✨</div>
                 <h3>Pemesanan Praktis</h3>
                 <p>Proses pesanan yang sangat mudah dan cepat. Cukup hubungi WhatsApp kami, dan pesanan Anda langsung diproses.</p>
             </div>
             
-            <div class="fitur-item">
-                <div class="icon">💎</div>
+            <div class="kartu-fitur">
+                <div class="icon-box">💎</div>
                 <h3>Produk Berkualitas</h3>
                 <p>Kami selalu memastikan setiap produk dibuat dan disiapkan dengan standar kualitas terbaik.</p>
             </div>
             
-            <div class="fitur-item">
-                <div class="icon">🤝</div>
+            <div class="kartu-fitur">
+                <div class="icon-box">🤝</div>
                 <h3>Pelayanan Ramah</h3>
                 <p>Admin kami siap membantu dan menjawab pertanyaan Anda dengan sepenuh hati.</p>
             </div>
         </div>
 
-        <div class="qris-card">
+        <!-- SECTION QRIS -->
+        <div class="qris-section">
             <h2>Pembayaran Tanpa Ribet</h2>
-            <p>Mendukung semua dompet digital (GoPay, OVO, DANA, ShopeePay) dan Mobile Banking via QRIS.</p>
+            <p class="desc">Mendukung semua dompet digital (GoPay, OVO, DANA, ShopeePay) dan Mobile Banking via QRIS.</p>
             
-            <div class="qris-image-wrapper">
+            <div class="qris-box">
                 <img src="qris.png" alt="QRIS Fenny Store">
             </div>
             
