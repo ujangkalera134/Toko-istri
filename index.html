@@ -3,169 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko [Nama Istri] - Pesan Gampang, Antar Sampai Rumah!</title>
+    <title>[Nama Toko Istri] - Pesan Langsung & Ambil di Toko</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* Desain Web (Pink & Putih) */
+        :root {
+            --primary-color: #6B1D2F; /* Maroon Elegan */
+            --primary-light: #9c3a52;
+            --bg-color: #FAFAFA;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff; /* Warna dasar Putih */
-            color: #4a4a4a;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.7;
         }
-        
-        /* Bagian Atas (Hero) */
+
+        /* Header Minimalis */
+        header {
+            text-align: center;
+            padding: 25px 20px;
+            background-color: var(--white);
+            border-bottom: 1px solid #eee;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section Profesional */
         .hero {
-            background: linear-gradient(135deg, #ffb6c1, #ffc0cb); /* Gradasi Pink Soft */
+            background-color: var(--white);
             padding: 60px 20px;
             text-align: center;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+            border-bottom: 1px solid #eee;
         }
-        .hero h1 {
-            font-size: 2rem;
-            color: #d63384; /* Pink Tua */
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
             margin-bottom: 15px;
+            line-height: 1.3;
         }
         .hero p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 25px;
-            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
         }
-        .btn-utama {
-            background-color: #25D366; /* Hijau WA */
+
+        /* Tombol Premium */
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366; /* Tetap pakai hijau WA biar orang familiar */
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            display: inline-block;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-            transition: 0.3s;
+            padding: 15px 35px;
+            border-radius: 5px; /* Ujung kotak, bukan bulat, biar formal */
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            border: none;
         }
-        .btn-utama:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+        .btn-wa:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            background-color: #128C7E;
+        }
+        .btn-wa svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
 
-        /* Bagian Konten */
+        /* Container Utama */
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
-        
+
         .section-title {
             text-align: center;
-            color: #d63384;
-            font-size: 1.5rem;
-            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 40px;
         }
 
-        /* Kotak Keunggulan */
-        .keunggulan {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+        /* Grid Keunggulan */
+        .grid-fitur {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
-        .box-keunggulan {
-            background-color: #fff0f3; /* Pink Sangat Muda */
-            border: 1px solid #ffb6c1;
-            border-radius: 15px;
-            padding: 20px;
-            flex: 1;
-            min-width: 250px;
+
+        .kartu-fitur {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #eaeaea;
             text-align: center;
+            transition: transform 0.3s ease;
         }
-        .box-keunggulan h3 {
-            color: #d63384;
+        .kartu-fitur:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .kartu-fitur .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .kartu-fitur h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
             margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .kartu-fitur p {
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
 
         /* Bagian Pembayaran QRIS */
-        .qris-section {
-            text-align: center;
-            background-color: #fff0f3;
+        .qris-wrapper {
+            background: var(--white);
+            border-radius: 15px;
             padding: 40px 20px;
-            border-radius: 20px;
-            border: 2px dashed #ffb6c1;
-            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-top: 60px;
+            border-top: 5px solid var(--primary-color);
         }
-        .qris-section h2 {
-            color: #d63384;
-            margin-bottom: 15px;
+        .qris-wrapper h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
-        .qris-img {
-            width: 200px;
-            height: auto;
+        .qris-wrapper p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+        
+        /* Kotak Gambar QRIS */
+        .qris-container {
+            display: inline-block;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin: 20px 0;
-            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .qris-container img {
+            width: 250px; /* Ukuran ideal buat scan */
+            height: auto;
+            display: block;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #ffb6c1;
-            color: #fff;
-            margin-top: 50px;
-            font-size: 0.9rem;
+            padding: 30px;
+            background-color: var(--primary-color);
+            color: #f0f0f0;
+            font-size: 0.85rem;
+            margin-top: 80px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Bagian Judul & Tombol WA -->
-    <div class="hero">
-        <h1>Toko [Nama Istri]</h1>
-        <p>Mager keluar rumah? Atau bingung cara pesan di Shopee? <br>Tenang, pesan langsung ke kami aja!</p>
-        <!-- GANTI NOMOR WA DI BAWAH INI (Awali pakai 62) -->
-        <a href="https://wa.me/6281234567890?text=Halo%20Kak,%20saya%20mau%20pesan%20barangnya" target="_blank" class="btn-utama">🛒 Pesan via WhatsApp</a>
-    </div>
+    <!-- Header -->
+    <header>
+        <h1>[Nama Toko Istri]</h1>
+    </header>
 
-    <div class="container">
-        <!-- Bagian Keunggulan -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Pesan Mudah, Langsung dari Toko Kami.</h2>
+        <p>Gak perlu ribet buka marketplace atau nunggu kurir. Pilih kebutuhan Anda, chat WhatsApp kami, dan ambil langsung di toko. Praktis dan hemat ongkir!</p>
+        
+        <!-- Tombol WA -->
+        <a href="https://wa.me/6282268946552?text=Halo,%20saya%20mau%20pesan%20barangnya." target="_blank" class="btn-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.126-.074-.271-.083-.621-.194-1.063-.396-1.868-.814-3.083-2.732-3.177-2.859-.092-.128-.762-1.017-.762-1.942 0-.924.485-1.379.656-1.568.172-.188.375-.235.5-.235.125 0 .25.001.36.006.115.006.269-.043.421.321.156.375.534 1.311.581 1.406.046.094.077.204.013.33-.064.125-.097.204-.194.317-.097.111-.203.249-.29.335-.096.094-.198.196-.083.392.115.196.509.844 1.092 1.365.749.669 1.381.875 1.576.976.196.098.311.083.425-.049.115-.131.493-.574.624-.769.131-.196.263-.164.443-.098.179.066 1.131.533 1.325.631.196.098.326.147.374.229.047.081.047.473-.096.878z"/></svg>
+            Pesan via WhatsApp
+        </a>
+    </section>
+
+    <!-- Konten -->
+    <main class="container">
+        
+        <!-- Keunggulan -->
         <h2 class="section-title">Kenapa Pesan di Sini?</h2>
-        <div class="keunggulan">
-            <div class="box-keunggulan">
-                <h3>🚀 Antar Cepat</h3>
-                <p>Pesan hari ini, langsung kami antar ke rumah Anda. Gak perlu nunggu kurir lama.</p>
+        
+        <div class="grid-fitur">
+            <!-- Ganti "Antar Cepat" menjadi "Ambil di Toko" -->
+            <div class="kartu-fitur">
+                <div class="icon">🏪</div>
+                <h3>Ambil Langsung di Toko</h3>
+                <p>Kami tidak menggunakan jasa antar. Pesanan bisa diambil langsung di tempat kami. Lebih hemat dan bisa cek barang langsung.</p>
             </div>
-            <div class="box-keunggulan">
-                <h3>💬 Gampang Banget</h3>
-                <p>Cukup chat WhatsApp, barang langsung kami siapkan. Gak perlu ribet daftar akun.</p>
+            
+            <div class="kartu-fitur">
+                <div class="icon">💬</div>
+                <h3>Pesan Gampang via WA</h3>
+                <p>Cukup chat tanpa perlu daftar akun. Admin kami siap melayani pesanan Anda dengan ramah.</p>
             </div>
-            <div class="box-keunggulan">
-                <h3>💖 Kualitas Terjamin</h3>
-                <p>Barang dibuat dan dicek langsung oleh kami. Kualitas rasa dan mutu nomor satu.</p>
+            
+            <div class="kartu-fitur">
+                <div class="icon">⭐</div>
+                <h3>Kualitas Terjamin</h3>
+                <p>Dibuat dan dikemas langsung oleh pemilik toko dengan standar mutu terbaik untuk Anda.</p>
             </div>
         </div>
 
-        <!-- Bagian QRIS -->
-        <div class="qris-section">
-            <h2>Bayar Gampang Pakai QRIS</h2>
-            <p>Bisa bayar pakai semua e-wallet (GoPay, OVO, DANA, ShopeePay) atau M-Banking.</p>
+        <!-- Pembayaran QRIS -->
+        <div class="qris-wrapper">
+            <h2>Pembayaran Praktis</h2>
+            <p>Mendukung semua e-wallet (GoPay, OVO, DANA, ShopeePay) dan M-Banking via QRIS.</p>
             
-            <!-- GANTI LINK GAMBAR QRIS DI BAWAH INI -->
-            <!-- Nanti ganti https://link-gambar-qris-lu.jpg pakai link gambar asli QRIS istri lu -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/220px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="QRIS Toko" class="qris-img">
+            <!-- Gambar QRIS -->
+            <div class="qris-container">
+                <img src="qris.jpg" alt="QRIS Pembayaran">
+            </div>
             
-            <p><strong>Scan QRIS di atas setelah pesanan dikonfirmasi via WA ya!</strong></p>
+            <p style="margin-top: 20px; font-weight: 500; color: var(--primary-color);">
+                *Silakan scan setelah pesanan dikonfirmasi oleh Admin via WA.
+            </p>
         </div>
-    </div>
+
+    </main>
 
     <footer>
-        &copy; 2026 Toko [Nama Istri]. Dibuat dengan 💖
+        &copy; 2026 [Nama Toko Istri]. All Rights Reserved.
     </footer>
 
 </body>
